@@ -1,7 +1,7 @@
 ---
 title: Getting Started
-type: page
-url: "getting_started"
+type: doc
+
 ---
 
 ### Pre Requisites

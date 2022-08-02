@@ -1,20 +1,28 @@
 {{ define "main" }}
-<div id="heading-breadcrumbs">
-        <div class="container">
-            
-            <h1>{{.Title}}</h1>
-        </div>
-    </div>
 
 <div class="container">
         <div class="row">
             <!-- *** LEFT COLUMN *** -->
+            <div class="col-md-3">
+
+                <!-- *** MENUS AND WIDGETS *** -->
+                <p>menu</p>
+                
+                <!-- *** MENUS AND FILTERS END *** -->
+
+            </div>
+            
+
+            <!-- *** LEFT COLUMN END *** -->
+
+            <!-- *** RIGHT COLUMN ***
+_________________________________________________________ -->
 
             <div class="col-md-9" id="blog-listing-medium">
 
-                {{ $paginator := .Paginate (where .Data.Pages "Type" "blog") }}
+                {{ $paginator := .Paginate (where .Data.Pages "Type" "doc") }}
                 {{ range $paginator.Pages }}
-                <section class="post">
+                <section class="content">
                     <div class="row">
                         <div class="col-md-4">
                           <div class="image">
@@ -22,7 +30,7 @@
                                   {{ if .Params.banner }}
                                   <img src="{{ .Site.BaseURL}}{{ .Params.banner }}" class="img-thumbnail" alt="">
                                   {{ else }}
-                                  <img src="{{ .Site.BaseURL}}img/placeholder.png" class="img-thumbnail" alt="">
+                                  {{.TableOfContents }}
                                   {{ end }}
                               </a>
                           </div>
@@ -42,7 +50,7 @@
 
                                 </p>
                                 <p class="date-comments">
-                                    <a href="{{ .Permalink }}"><i class="fa fa-calendar-o"></i> {{ .Date.Format .Site.Params.date_format }}</a>
+                                    <a href="{{ .Permalink }}"><i class="fa fa-calendar-o"></i> {{ .Date }}</a>
                                 </p>
                             </div>
                             <p class="intro">{{ .Summary }}</p>
@@ -67,23 +75,7 @@
                     {{ end }}
                 </ul>
             </div>
-            <!-- /.col-md-9 -->
-
-            <!-- *** LEFT COLUMN END *** -->
-
-            <!-- *** RIGHT COLUMN ***
-_________________________________________________________ -->
-
-            <div class="col-md-3">
-
-                <!-- *** MENUS AND WIDGETS *** -->
-
-             \
-                <!-- *** MENUS AND FILTERS END *** -->
-
-            </div>
-            <!-- /.col-md-3 -->
-
+            
             <!-- *** RIGHT COLUMN END *** -->
 
         </div>
