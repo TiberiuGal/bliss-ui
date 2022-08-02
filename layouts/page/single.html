@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div id="content">
+<div id="heading-breadcrumbs">
+    <div class="container">
+        <h1>{{.Params.title}}</h1>
+    </div>
+</div>
+<div class="container">
+    {{ .Content }}
+</div>
+</div>
+{{ end }}

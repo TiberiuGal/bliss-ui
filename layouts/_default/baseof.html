@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>{{ partial "head.html" . }}</head>
+
+<body class="{{.Params.type}}">
+    {{ partial "nav.html" . }}
+    
+    {{ block "main" . }} {{ end }}
+    
+    {{ partial "footer.html" . }}
+</body>
+{{ partial "scripts.html" . }}
+
+</html>
